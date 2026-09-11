@@ -1,0 +1,27 @@
+{
+  "name": "agri-survey",
+  "version": "1.0.0",
+  "description": "AgriSurvey – Smart Agriculture Public Survey Full-Stack Web Application",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "agriculture",
+    "survey",
+    "full-stack",
+    "express",
+    "pab-project",
+    "college-project"
+  ],
+  "author": "AgriSurvey Team",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

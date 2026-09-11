@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#081c15" />
+      <stop offset="60%" stop-color="#1b4332" />
+      <stop offset="100%" stop-color="#2d6a4f" />
+    </linearGradient>
+    <linearGradient id="sun" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="100%" stop-color="#eab308" />
+    </linearGradient>
+    <linearGradient id="hill1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2d6a4f" />
+      <stop offset="100%" stop-color="#40916c" />
+    </linearGradient>
+    <linearGradient id="hill2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1b4332" />
+      <stop offset="100%" stop-color="#2d6a4f" />
+    </linearGradient>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="1200" height="600" fill="url(#sky)" />
+
+  <!-- Morning Sun -->
+  <circle cx="850" cy="220" r="90" fill="url(#sun)" opacity="0.85" filter="drop-shadow(0 0 40px #fde047)" />
+
+  <!-- Far Mountains / Hills -->
+  <path d="M0,420 Q300,320 600,380 T1200,360 L1200,600 L0,600 Z" fill="url(#hill1)" opacity="0.6" />
+
+  <!-- Near Farmland Terraces -->
+  <path d="M0,460 Q400,400 800,470 T1200,440 L1200,600 L0,600 Z" fill="url(#hill2)" />
+
+  <!-- Furrow lines (crop field rows) -->
+  <g stroke="#52b788" stroke-width="2" opacity="0.4">
+    <line x1="150" y1="600" x2="400" y2="470" />
+    <line x1="300" y1="600" x2="500" y2="470" />
+    <line x1="450" y1="600" x2="600" y2="470" />
+    <line x1="600" y1="600" x2="700" y2="470" />
+    <line x1="750" y1="600" x2="800" y2="470" />
+    <line x1="900" y1="600" x2="900" y2="470" />
+    <line x1="1050" y1="600" x2="1000" y2="470" />
+  </g>
+</svg>

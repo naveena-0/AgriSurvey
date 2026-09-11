@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgriSurvey – Smart Agriculture Public Survey</title>
+  <meta name="description" content="AgriSurvey is a modern web-based public survey platform capturing farmer experiences, crop production, irrigation, climate resilience, and agricultural challenges.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌾</text></svg>">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo">
+        <span class="brand-icon">🌾</span>
+        <span>AgriSurvey</span>
+        <span class="brand-badge">Public Portal</span>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="#hero" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About Survey</a></li>
+        <li><a href="#topics" class="nav-link">Topics</a></li>
+        <li><a href="survey.html" class="nav-link">Survey</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <div id="nav-auth-container">
+          <a href="login.html" class="btn btn-sm btn-secondary">Login</a>
+          <a href="register.html" class="btn btn-sm btn-primary">Register</a>
+        </div>
+        <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="hero" class="hero">
+    <div class="hero-pattern"></div>
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="hero-pill">
+          <span>🌱</span> Empowering Farm Communities
+        </div>
+        <h1 class="hero-title">
+          Your Voice Shapes the <span>Future of Agriculture</span>
+        </h1>
+        <p class="hero-desc">
+          Help us understand farming practices, crop production, agricultural challenges, resources, and farmer experiences through this public agriculture survey.
+        </p>
+
+        <div class="hero-actions">
+          <a href="survey.html" class="btn btn-gold btn-lg">
+            <span>🌾 Start Survey</span>
+          </a>
+          <a href="#about" class="btn btn-outline-white btn-lg">
+            <span>Learn More</span>
+          </a>
+        </div>
+
+        <div class="hero-stats-row">
+          <div class="hero-stat">
+            <h4>5,000+</h4>
+            <p>Farmers Reached</p>
+          </div>
+          <div class="hero-stat">
+            <h4>14</h4>
+            <p>Core Survey Areas</p>
+          </div>
+          <div class="hero-stat">
+            <h4>100%</h4>
+            <p>Community Driven</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-card-preview">
+          <div class="hero-preview-header">
+            <div class="hero-preview-icon">🚜</div>
+            <div>
+              <h3>AgriSurvey 2026</h3>
+              <p>National Public Survey Portal</p>
+            </div>
+          </div>
+
+          <ul class="preview-features-list">
+            <li>
+              <div class="preview-check">✓</div>
+              <span>Crop Cultivation & Seasonal Analysis</span>
+            </li>
+            <li>
+              <div class="preview-check">✓</div>
+              <span>Irrigation, Water & Power Resources</span>
+            </li>
+            <li>
+              <div class="preview-check">✓</div>
+              <span>Fertilizer, Soil Health & Pest Control</span>
+            </li>
+            <li>
+              <div class="preview-check">✓</div>
+              <span>Credit Access & Economic Profitability</span>
+            </li>
+            <li>
+              <div class="preview-check">✓</div>
+              <span>Technology Adoption & Policy Voice</span>
+            </li>
+          </ul>
+
+          <div style="margin-top: 1.8rem; padding-top: 1.2rem; border-top: 1px solid rgba(255,255,255,0.2); text-align: center;">
+            <a href="survey.html" class="btn btn-primary" style="width: 100%;">Begin Survey Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Survey Section -->
+  <section id="about" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill">Why Participate</span>
+        <h2 class="section-title">Why This Public Survey Matters</h2>
+        <p class="section-desc">
+          Accurate grassroots data ensures that policymakers, researchers, and agritech innovators understand the ground reality faced by farmers today.
+        </p>
+      </div>
+
+      <div class="cards-grid">
+        <div class="topic-card">
+          <div class="topic-card-icon">🌾</div>
+          <h3>Crop Production Trends</h3>
+          <p>Documenting primary crops (rice, wheat, cotton, pulses), seasonal yield patterns, and crop rotation practices.</p>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-card-icon">💧</div>
+          <h3>Irrigation & Water Access</h3>
+          <p>Evaluating groundwater sustainability, borewells, canal water distribution, and drip/sprinkler adoption.</p>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-card-icon">🧪</div>
+          <h3>Fertilizer & Soil Testing</h3>
+          <p>Tracking organic vs chemical nutrient usage, soil health card awareness, and fertilizer expenditure burdens.</p>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-card-icon">⛅</div>
+          <h3>Climate & Weather Resilience</h3>
+          <p>Measuring the real impacts of droughts, erratic monsoons, unseasonal rainfalls, and extreme temperature spikes.</p>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-card-icon">⚡</div>
+          <h3>Power & Electricity Supply</h3>
+          <p>Analyzing daily agricultural electricity availability and the operational impact of load shedding on irrigation.</p>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-card-icon">💰</div>
+          <h3>Financial & Credit Realities</h3>
+          <p>Understanding input expenses, labour costs, bank loans, self-help groups, and credit repayment accessibility.</p>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-card-icon">🚜</div>
+          <h3>Modern Technology in Action</h3>
+          <p>Discovering how tractors, harvester machinery, drones, and smartphone weather apps are changing fields.</p>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-card-icon">⚖️</div>
+          <h3>Market Fair Pricing & Losses</h3>
+          <p>Examining post-harvest losses, mandi middlemen challenges, direct selling, and true farmer profitability.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Topics & Step Breakdown Section -->
+  <section id="topics" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill">Survey Roadmap</span>
+        <h2 class="section-title">8 Simple, Organized Steps</h2>
+        <p class="section-desc">
+          Designed with intuitive card selections and instant auto-save. Fill at your own pace across 8 organized stages.
+        </p>
+      </div>
+
+      <div class="survey-flow-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <div>
+            <h4>Farmer Demographics</h4>
+            <p>Personal profile, location, and years in farming.</p>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <div>
+            <h4>Land & Base Operations</h4>
+            <p>Acreage, tenure, and rotation patterns.</p>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <div>
+            <h4>Crop Cultivation</h4>
+            <p>Main produce, seasonal cycles, and choices.</p>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <div>
+            <h4>Water & Electricity</h4>
+            <p>Irrigation methods and agricultural power.</p>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">5</div>
+          <div>
+            <h4>Soil & Climate</h4>
+            <p>Nutrients, soil tests, and weather hazards.</p>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">6</div>
+          <div>
+            <h4>Economics & Credit</h4>
+            <p>Seasonal investments, labour, and loans.</p>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">7</div>
+          <div>
+            <h4>Harvest & Market</h4>
+            <p>Yield, post-harvest losses, and selling prices.</p>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">8</div>
+          <div>
+            <h4>Tech & Policy Voice</h4>
+            <p>Smart tools, govt schemes, and satisfaction.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 3.5rem;">
+        <div class="cta-banner">
+          <h2>Ready to Make Your Contribution?</h2>
+          <p>Takes only 4–5 minutes. Your inputs remain secure and contribute directly to open agriculture studies.</p>
+          <a href="survey.html" class="btn btn-gold btn-lg">Start Public Survey Now →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Feedback Section -->
+  <section id="contact" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill">Inquiries</span>
+        <h2 class="section-title">Contact Survey Desk</h2>
+        <p class="section-desc">
+          Have questions regarding the survey methodology or academic collaboration? Get in touch with our project team.
+        </p>
+      </div>
+
+      <div style="max-width: 600px; margin: 0 auto; background: var(--bg-card); padding: 2.2rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); box-shadow: var(--shadow-md);">
+        <form id="contact-form" onsubmit="event.preventDefault(); showToast('Thank you! Your inquiry has been sent.', 'success'); this.reset();">
+          <div class="form-group">
+            <label class="form-label">Your Name <span class="required">*</span></label>
+            <input type="text" class="form-control" placeholder="e.g. Anand Sharma" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Email Address <span class="required">*</span></label>
+            <input type="email" class="form-control" placeholder="name@example.com" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Message / Feedback <span class="required">*</span></label>
+            <textarea class="form-control" rows="4" placeholder="Type your inquiry or suggestion regarding the agriculture survey..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h3>🌾 AgriSurvey</h3>
+        <p>
+          A smart public agriculture survey web platform built to amplify farmers' perspectives on crop patterns, climate challenges, and market conditions.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About Survey</a></li>
+          <li><a href="survey.html">Take Survey</a></li>
+          <li><a href="login.html">Farmer Login</a></li>
+          <li><a href="register.html">Farmer Registration</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Project Notice</h4>
+        <p style="font-size: 0.88rem; color: rgba(255,255,255,0.7); line-height: 1.6;">
+          Developed for Academic & PAB Project Demonstration. Simulated offline storage supported with HTML5 LocalStorage.
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2026 AgriSurvey Project. All rights reserved.</div>
+      <div>Designed with 🌾 for Agriculture Empowerment</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

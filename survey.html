@@ -1,0 +1,1808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Survey Form – AgriSurvey</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌾</text></svg>">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo">
+        <span class="brand-icon">🌾</span>
+        <span>AgriSurvey</span>
+        <span class="brand-badge">Public Survey</span>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="index.html#about" class="nav-link">About</a></li>
+        <li><a href="survey.html" class="nav-link active">Survey</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <div id="nav-auth-container"></div>
+        <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Survey Container -->
+  <main class="survey-wrapper">
+
+    <!-- Demo Fast-Fill Helper Bar -->
+    <div class="demo-quick-bar">
+      <div>
+        <strong>⚡ College / PAB Presentation Mode:</strong>
+        <span>Quickly fill all 54 questions with verified sample data for instant demonstration.</span>
+      </div>
+      <button type="button" id="btn-quick-demo-fill" class="btn btn-sm btn-gold">
+        ⚡ Quick Demo Fill
+      </button>
+    </div>
+
+    <!-- Stepper Progress Header -->
+    <section class="stepper-container" aria-label="Survey Progress">
+      <div class="stepper-header">
+        <h3 style="font-size: 1.15rem; color: var(--primary-900);">Survey Completion Status</h3>
+        <span id="stepper-badge" class="stepper-badge">Step 1 of 8 (13% Complete)</span>
+      </div>
+
+      <div class="progress-track">
+        <div id="progress-fill" class="progress-fill"></div>
+      </div>
+
+      <div class="steps-labels">
+        <div class="step-label-item active" data-step="1">
+          <div class="step-dot">1</div>
+          <span class="step-label-text">Profile</span>
+        </div>
+        <div class="step-label-item" data-step="2">
+          <div class="step-dot">2</div>
+          <span class="step-label-text">Land & Base</span>
+        </div>
+        <div class="step-label-item" data-step="3">
+          <div class="step-dot">3</div>
+          <span class="step-label-text">Crops</span>
+        </div>
+        <div class="step-label-item" data-step="4">
+          <div class="step-dot">4</div>
+          <span class="step-label-text">Water & Power</span>
+        </div>
+        <div class="step-label-item" data-step="5">
+          <div class="step-dot">5</div>
+          <span class="step-label-text">Soil & Climate</span>
+        </div>
+        <div class="step-label-item" data-step="6">
+          <div class="step-dot">6</div>
+          <span class="step-label-text">Finance & Loan</span>
+        </div>
+        <div class="step-label-item" data-step="7">
+          <div class="step-dot">7</div>
+          <span class="step-label-text">Harvest & Profit</span>
+        </div>
+        <div class="step-label-item" data-step="8">
+          <div class="step-dot">8</div>
+          <span class="step-label-text">Tech & Voice</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Survey Form -->
+    <form id="survey-form" onsubmit="event.preventDefault();">
+
+      <!-- ===================================================================
+           STEP 1: Farmer Profile & Contact Details
+           =================================================================== -->
+      <section id="survey-step-1" class="survey-section-card">
+        <div class="step-banner">
+          <div class="step-banner-icon">👨‍🌾</div>
+          <div class="step-banner-info">
+            <h2>Step 1: Farmer & Demographics Profile</h2>
+            <p>Please enter your contact and geographical details for verified regional classification.</p>
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label" for="farmer-name">Full Name <span class="required">*</span></label>
+            <input type="text" id="farmer-name" name="farmer_name" class="form-control" placeholder="e.g. Ramesh Patel" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="farmer-age">Age <span class="required">*</span></label>
+            <input type="number" id="farmer-age" name="farmer_age" class="form-control" min="18" max="100" placeholder="e.g. 42" required>
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label" for="farmer-gender">Gender <span class="required">*</span></label>
+            <select id="farmer-gender" name="farmer_gender" class="form-control" required>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="farmer-mobile">Mobile Number <span class="required">*</span></label>
+            <input type="tel" id="farmer-mobile" name="farmer_mobile" class="form-control" placeholder="10-digit mobile" required>
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label" for="farmer-email">Email Address</label>
+            <input type="email" id="farmer-email" name="farmer_email" class="form-control" placeholder="farmer@example.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="farmer-village">Village / Town <span class="required">*</span></label>
+            <input type="text" id="farmer-village" name="farmer_village" class="form-control" placeholder="e.g. Kalyanpur" required>
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label" for="farmer-district">District <span class="required">*</span></label>
+            <input type="text" id="farmer-district" name="farmer_district" class="form-control" placeholder="e.g. Nashik" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="farmer-state">State <span class="required">*</span></label>
+            <input type="text" id="farmer-state" name="farmer_state" class="form-control" placeholder="e.g. Maharashtra" required>
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label" for="farmer-pincode">Pincode</label>
+            <input type="text" id="farmer-pincode" name="farmer_pincode" class="form-control" placeholder="e.g. 422003">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="farmer-experience">Years of Farming Experience</label>
+            <select id="farmer-experience" name="farmer_experience" class="form-control">
+              <option value="Less than 1 year">Less than 1 year</option>
+              <option value="1–5 years">1–5 years</option>
+              <option value="6–10 years">6–10 years</option>
+              <option value="11–20 years" selected>11–20 years</option>
+              <option value="More than 20 years">More than 20 years</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           STEP 2: Basic Farming & Land Holding (Q1, Q2, Q3, Q6, Q7, Q8)
+           =================================================================== -->
+      <section id="survey-step-2" class="survey-section-card" style="display: none;">
+        <div class="step-banner">
+          <div class="step-banner-icon">🏡</div>
+          <div class="step-banner-info">
+            <h2>Step 2: Basic Farming & Land Holding</h2>
+            <p>Information about land ownership size, occupational roles, and rotation cycles.</p>
+          </div>
+        </div>
+
+        <!-- Q1 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q1</span>
+            <span>What is your primary occupation?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q1_occupation" value="Farmer" data-required="true" checked>
+              <span class="option-label">👨‍🌾 Farmer</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q1_occupation" value="Agricultural Worker" data-required="true">
+              <span class="option-label">🛠️ Agricultural Worker</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q1_occupation" value="Farm Owner" data-required="true">
+              <span class="option-label">🏡 Farm Owner</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q1_occupation" value="Tenant Farmer" data-required="true">
+              <span class="option-label">🤝 Tenant Farmer</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q1_occupation" value="Other" data-required="true">
+              <span class="option-label">✨ Other</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q2</span>
+            <span>How many years have you been involved in farming?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q2_experience" value="Less than 1 year" data-required="true">
+              <span class="option-label">🌱 Less than 1 year</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q2_experience" value="1–5 years" data-required="true">
+              <span class="option-label">🌾 1–5 years</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q2_experience" value="6–10 years" data-required="true">
+              <span class="option-label">🌿 6–10 years</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q2_experience" value="11–20 years" data-required="true" checked>
+              <span class="option-label">🌳 11–20 years</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q2_experience" value="More than 20 years" data-required="true">
+              <span class="option-label">⭐ More than 20 years</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q3</span>
+            <span>What is the approximate size of your cultivated land?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q3_land_size" value="Less than 1 acre" data-required="true">
+              <span class="option-label">📏 Less than 1 acre</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q3_land_size" value="1–2 acres" data-required="true">
+              <span class="option-label">📐 1–2 acres</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q3_land_size" value="2–5 acres" data-required="true">
+              <span class="option-label">🌾 2–5 acres</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q3_land_size" value="5–10 acres" data-required="true" checked>
+              <span class="option-label">🚜 5–10 acres</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q3_land_size" value="More than 10 acres" data-required="true">
+              <span class="option-label">🏞️ More than 10 acres</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q6</span>
+            <span>How many crops do you normally cultivate in one year?</span>
+          </div>
+          <div class="options-grid-compact options-grid">
+            <label class="option-card">
+              <input type="radio" name="q6_crops_count" value="1" data-required="true">
+              <span class="option-label">1 Crop</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q6_crops_count" value="2" data-required="true" checked>
+              <span class="option-label">2 Crops</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q6_crops_count" value="3" data-required="true">
+              <span class="option-label">3 Crops</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q6_crops_count" value="More than 3" data-required="true">
+              <span class="option-label">4+ Crops</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q7</span>
+            <span>Do you practice crop rotation?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q7_crop_rotation" value="Yes" data-required="true" checked>
+              <span class="option-label">🔄 Yes</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q7_crop_rotation" value="No" data-required="true">
+              <span class="option-label">❌ No</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q7_crop_rotation" value="Sometimes" data-required="true">
+              <span class="option-label">⏳ Sometimes</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q8</span>
+            <span>What is your main reason for selecting this crop?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q8_reason" value="Market demand" data-required="true" checked>
+              <span class="option-label">📈 Market demand</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q8_reason" value="Climate suitability" data-required="true">
+              <span class="option-label">☀️ Climate suitability</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q8_reason" value="Water availability" data-required="true">
+              <span class="option-label">💧 Water availability</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q8_reason" value="Higher profit" data-required="true">
+              <span class="option-label">💵 Higher profit</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q8_reason" value="Government support" data-required="true">
+              <span class="option-label">🏛️ Government support</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q8_reason" value="Traditional crop" data-required="true">
+              <span class="option-label">🌾 Traditional crop</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q8_reason" value="Other" data-required="true">
+              <span class="option-label">✨ Other reason</span>
+            </label>
+          </div>
+          <div id="q8_reason_other_box" class="conditional-box">
+            <label class="form-label">Specify reason:</label>
+            <input type="text" name="q8_reason_other" class="form-control" placeholder="Describe reason...">
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           STEP 3: Crop Cultivation & Seasons (Q4, Q5)
+           =================================================================== -->
+      <section id="survey-step-3" class="survey-section-card" style="display: none;">
+        <div class="step-banner">
+          <div class="step-banner-icon">🌾</div>
+          <div class="step-banner-info">
+            <h2>Step 3: Main Crop Information & Seasons</h2>
+            <p>Detail your principal harvest items and primary seasonal cycles.</p>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q4</span>
+            <span>What is the main crop you cultivate?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q4_crop" value="Rice" data-required="true">
+              <span class="option-label">🍚 Rice / Paddy</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q4_crop" value="Wheat" data-required="true" checked>
+              <span class="option-label">🌾 Wheat</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q4_crop" value="Cotton" data-required="true">
+              <span class="option-label">☁️ Cotton</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q4_crop" value="Maize" data-required="true">
+              <span class="option-label">🌽 Maize</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q4_crop" value="Groundnut" data-required="true">
+              <span class="option-label">🥜 Groundnut</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q4_crop" value="Sugarcane" data-required="true">
+              <span class="option-label">🎋 Sugarcane</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q4_crop" value="Pulses" data-required="true">
+              <span class="option-label">🥣 Pulses</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q4_crop" value="Vegetables" data-required="true">
+              <span class="option-label">🥦 Vegetables</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q4_crop" value="Fruits" data-required="true">
+              <span class="option-label">🍎 Fruits</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q4_crop" value="Other" data-required="true">
+              <span class="option-label">✨ Other</span>
+            </label>
+          </div>
+          <div id="q4_crop_other_box" class="conditional-box">
+            <label class="form-label">Please specify your main crop:</label>
+            <input type="text" name="q4_crop_other" class="form-control" placeholder="e.g. Mustard, Soybean, Coffee...">
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q5</span>
+            <span>Which crop season do you mainly cultivate?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q5_season" value="Kharif" data-required="true">
+              <span class="option-label">🌧️ Kharif (Monsoon)</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q5_season" value="Rabi" data-required="true" checked>
+              <span class="option-label">❄️ Rabi (Winter)</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q5_season" value="Zaid" data-required="true">
+              <span class="option-label">☀️ Zaid (Summer)</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q5_season" value="Multiple seasons" data-required="true">
+              <span class="option-label">🔄 Multiple seasons</span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           STEP 4: Water, Irrigation & Electricity Power (Q9, Q10, Q11, Q12, Q21, Q22, Q23)
+           =================================================================== -->
+      <section id="survey-step-4" class="survey-section-card" style="display: none;">
+        <div class="step-banner">
+          <div class="step-banner-icon">💧</div>
+          <div class="step-banner-info">
+            <h2>Step 4: Water, Irrigation & Power Supply</h2>
+            <p>Document water resources, irrigation techniques, and agricultural electricity availability.</p>
+          </div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q9</span>
+            <span>What is your main source of irrigation?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q9_water_source" value="Borewell" data-required="true" checked>
+              <span class="option-label">🚰 Borewell</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q9_water_source" value="Canal" data-required="true">
+              <span class="option-label">🌊 Canal</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q9_water_source" value="River" data-required="true">
+              <span class="option-label">🏞️ River</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q9_water_source" value="Rainwater" data-required="true">
+              <span class="option-label">🌧️ Rainwater</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q9_water_source" value="Tank/Pond" data-required="true">
+              <span class="option-label">🦆 Tank / Pond</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q9_water_source" value="Drip irrigation" data-required="true">
+              <span class="option-label">💧 Drip System</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q9_water_source" value="Sprinkler" data-required="true">
+              <span class="option-label">🚿 Sprinkler</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q9_water_source" value="Other" data-required="true">
+              <span class="option-label">✨ Other</span>
+            </label>
+          </div>
+          <div id="q9_water_source_other_box" class="conditional-box">
+            <label class="form-label">Specify irrigation source:</label>
+            <input type="text" name="q9_water_source_other" class="form-control" placeholder="Source details...">
+          </div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q10</span>
+            <span>Is water availability sufficient for your crops?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q10_water_sufficient" value="Always" data-required="true">
+              <span class="option-label">🟢 Always</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q10_water_sufficient" value="Usually" data-required="true" checked>
+              <span class="option-label">🔵 Usually</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q10_water_sufficient" value="Sometimes" data-required="true">
+              <span class="option-label">🟡 Sometimes</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q10_water_sufficient" value="Rarely" data-required="true">
+              <span class="option-label">🟠 Rarely</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q10_water_sufficient" value="Never" data-required="true">
+              <span class="option-label">🔴 Never</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q11 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q11</span>
+            <span>What irrigation method do you mainly use?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q11_irrigation_method" value="Flood irrigation" data-required="true">
+              <span class="option-label">🌊 Flood irrigation</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q11_irrigation_method" value="Drip irrigation" data-required="true" checked>
+              <span class="option-label">💧 Drip irrigation</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q11_irrigation_method" value="Sprinkler irrigation" data-required="true">
+              <span class="option-label">🚿 Sprinkler irrigation</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q11_irrigation_method" value="Rain-fed" data-required="true">
+              <span class="option-label">🌧️ Rain-fed</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q11_irrigation_method" value="Other" data-required="true">
+              <span class="option-label">✨ Other</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q12 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q12</span>
+            <span>Approximately how much water is required for your main crop?</span>
+          </div>
+          <div class="form-grid-2">
+            <input type="number" name="q12_water_qty" class="form-control" placeholder="e.g. 400" value="400">
+            <select name="q12_water_unit" class="form-control">
+              <option value="Liters/Acre/Day">Liters / Acre / Day</option>
+              <option value="Pumping Hours/Week">Pumping Hours / Week</option>
+              <option value="Acre-Inches">Acre-Inches</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Q21 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q21</span>
+            <span>Is electricity supply sufficient for irrigation?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q21_power_sufficient" value="Always" data-required="true">
+              <span class="option-label">🟢 Always</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q21_power_sufficient" value="Usually" data-required="true" checked>
+              <span class="option-label">🔵 Usually</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q21_power_sufficient" value="Sometimes" data-required="true">
+              <span class="option-label">🟡 Sometimes</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q21_power_sufficient" value="Rarely" data-required="true">
+              <span class="option-label">🟠 Rarely</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q21_power_sufficient" value="Never" data-required="true">
+              <span class="option-label">🔴 Never</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q22 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q22</span>
+            <span>How many hours of electricity do you approximately receive for agricultural purposes per day?</span>
+          </div>
+          <div style="max-width: 320px;">
+            <input type="number" name="q22_power_hours" class="form-control" min="0" max="24" placeholder="Hours per day (0–24)" value="8">
+          </div>
+        </div>
+
+        <!-- Q23 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q23</span>
+            <span>Does power supply interruption affect your crop production?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q23_power_interruption" value="Frequently" data-required="true">
+              <span class="option-label">⚡ Frequently</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q23_power_interruption" value="Sometimes" data-required="true" checked>
+              <span class="option-label">⏳ Sometimes</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q23_power_interruption" value="Rarely" data-required="true">
+              <span class="option-label">🛡️ Rarely</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q23_power_interruption" value="Never" data-required="true">
+              <span class="option-label">✅ Never</span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           STEP 5: Fertilizer, Soil & Climate (Q13, Q14, Q15, Q16, Q17, Q18, Q19, Q20)
+           =================================================================== -->
+      <section id="survey-step-5" class="survey-section-card" style="display: none;">
+        <div class="step-banner">
+          <div class="step-banner-icon">🧪</div>
+          <div class="step-banner-info">
+            <h2>Step 5: Fertilizer, Soil & Climate Resilience</h2>
+            <p>Nutrient practices, laboratory soil tests, and weather vulnerability assessments.</p>
+          </div>
+        </div>
+
+        <!-- Q13 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q13</span>
+            <span>What type of fertilizer do you mainly use?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q13_fertilizer_type" value="Organic fertilizer" data-required="true">
+              <span class="option-label">🌱 Organic fertilizer</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q13_fertilizer_type" value="Chemical fertilizer" data-required="true">
+              <span class="option-label">🧪 Chemical fertilizer</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q13_fertilizer_type" value="Both" data-required="true" checked>
+              <span class="option-label">⚖️ Both</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q13_fertilizer_type" value="Bio-fertilizer" data-required="true">
+              <span class="option-label">🦠 Bio-fertilizer</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q14 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q14</span>
+            <span>How often do you use fertilizer?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q14_fertilizer_frequency" value="Once per season" data-required="true">
+              <span class="option-label">1x per season</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q14_fertilizer_frequency" value="2–3 times per season" data-required="true" checked>
+              <span class="option-label">2–3x per season</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q14_fertilizer_frequency" value="More than 3 times" data-required="true">
+              <span class="option-label">&gt;3x per season</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q14_fertilizer_frequency" value="Based on crop requirement" data-required="true">
+              <span class="option-label">🎯 Based on crop need</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q15 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q15</span>
+            <span>Do you perform soil testing?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q15_soil_test" value="Regularly" data-required="true">
+              <span class="option-label">✅ Regularly</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q15_soil_test" value="Sometimes" data-required="true" checked>
+              <span class="option-label">⏳ Sometimes</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q15_soil_test" value="Never" data-required="true">
+              <span class="option-label">❌ Never</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q16 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q16</span>
+            <span>Do fertilizer costs significantly affect your farming expenses?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q16_fertilizer_cost_impact" value="Yes" data-required="true" checked>
+              <span class="option-label">💸 Yes</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q16_fertilizer_cost_impact" value="No" data-required="true">
+              <span class="option-label">🛡️ No</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q16_fertilizer_cost_impact" value="Sometimes" data-required="true">
+              <span class="option-label">⏳ Sometimes</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q17 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q17</span>
+            <span>How much does climate affect your crop production?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q17_climate_impact" value="Very High" data-required="true">
+              <span class="option-label">🔥 Very High</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q17_climate_impact" value="High" data-required="true" checked>
+              <span class="option-label">⚠️ High</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q17_climate_impact" value="Moderate" data-required="true">
+              <span class="option-label">⛅ Moderate</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q17_climate_impact" value="Low" data-required="true">
+              <span class="option-label">🟢 Low</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q17_climate_impact" value="Very Low" data-required="true">
+              <span class="option-label">🛡️ Very Low</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q18 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q18</span>
+            <span>Which weather condition causes the biggest problem?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q18_weather_problem" value="Excessive rain" data-required="true">
+              <span class="option-label">🌧️ Excessive rain</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q18_weather_problem" value="Drought" data-required="true">
+              <span class="option-label">🏜️ Drought</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q18_weather_problem" value="High temperature" data-required="true">
+              <span class="option-label">🌡️ High temp</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q18_weather_problem" value="Low temperature" data-required="true">
+              <span class="option-label">🥶 Cold frost</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q18_weather_problem" value="Strong wind" data-required="true">
+              <span class="option-label">💨 Strong wind</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q18_weather_problem" value="Flood" data-required="true">
+              <span class="option-label">🌊 Flood</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q18_weather_problem" value="Unpredictable weather" data-required="true" checked>
+              <span class="option-label">🌪️ Unpredictable weather</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q19 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q19</span>
+            <span>Have you experienced crop loss because of extreme weather?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q19_extreme_weather_loss" value="Yes" data-required="true" checked>
+              <span class="option-label">⚠️ Yes</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q19_extreme_weather_loss" value="No" data-required="true">
+              <span class="option-label">🛡️ No</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q20 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q20</span>
+            <span>Which season is most difficult for your farming?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q20_difficult_season" value="Summer" data-required="true" checked>
+              <span class="option-label">☀️ Summer</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q20_difficult_season" value="Monsoon" data-required="true">
+              <span class="option-label">🌧️ Monsoon</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q20_difficult_season" value="Winter" data-required="true">
+              <span class="option-label">❄️ Winter</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q20_difficult_season" value="No particular season" data-required="true">
+              <span class="option-label">⚖️ No particular season</span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           STEP 6: Investment, Expenses & Credit / Loans (Q24, Q25, Q26, Q27, Q28, Q29)
+           =================================================================== -->
+      <section id="survey-step-6" class="survey-section-card" style="display: none;">
+        <div class="step-banner">
+          <div class="step-banner-icon">💰</div>
+          <div class="step-banner-info">
+            <h2>Step 6: Farming Investments, Costs & Credit</h2>
+            <p>Season input budgets, labour allocations, and agricultural loan availability.</p>
+          </div>
+        </div>
+
+        <!-- Q24 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q24</span>
+            <span>Approximately how much do you invest in one crop season?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q24_season_investment" value="Less than ₹25,000" data-required="true">
+              <span class="option-label">&lt; ₹25,000</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q24_season_investment" value="₹25,000 – ₹50,000" data-required="true">
+              <span class="option-label">₹25,000 – ₹50,000</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q24_season_investment" value="₹50,000 – ₹1,00,000" data-required="true" checked>
+              <span class="option-label">₹50,000 – ₹1,00,000</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q24_season_investment" value="More than ₹1,00,000" data-required="true">
+              <span class="option-label">&gt; ₹1,00,000</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q25 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q25</span>
+            <span>What is your biggest farming expense?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q25_biggest_expense" value="Seeds" data-required="true">
+              <span class="option-label">🌱 Seeds</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q25_biggest_expense" value="Fertilizer" data-required="true" checked>
+              <span class="option-label">🧪 Fertilizer</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q25_biggest_expense" value="Pesticides" data-required="true">
+              <span class="option-label">🛡️ Pesticides</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q25_biggest_expense" value="Labour" data-required="true">
+              <span class="option-label">👥 Labour</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q25_biggest_expense" value="Irrigation" data-required="true">
+              <span class="option-label">💧 Irrigation</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q25_biggest_expense" value="Electricity" data-required="true">
+              <span class="option-label">⚡ Electricity</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q25_biggest_expense" value="Machinery" data-required="true">
+              <span class="option-label">🚜 Machinery</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q25_biggest_expense" value="Transportation" data-required="true">
+              <span class="option-label">🚚 Transport</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q25_biggest_expense" value="Other" data-required="true">
+              <span class="option-label">✨ Other</span>
+            </label>
+          </div>
+          <div id="q25_expense_other_box" class="conditional-box">
+            <label class="form-label">Specify biggest expense:</label>
+            <input type="text" name="q25_biggest_expense_other" class="form-control" placeholder="Detail expense...">
+          </div>
+        </div>
+
+        <!-- Q26 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q26</span>
+            <span>What percentage of your farming cost is spent on labour?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q26_labour_cost_pct" value="Less than 10%" data-required="true">
+              <span class="option-label">&lt; 10%</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q26_labour_cost_pct" value="10% – 20%" data-required="true">
+              <span class="option-label">10% – 20%</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q26_labour_cost_pct" value="20% – 40%" data-required="true" checked>
+              <span class="option-label">20% – 40%</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q26_labour_cost_pct" value="More than 40%" data-required="true">
+              <span class="option-label">&gt; 40%</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q27 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q27</span>
+            <span>Have your farming expenses increased in recent years?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q27_expenses_increased" value="Significantly" data-required="true" checked>
+              <span class="option-label">📈 Significantly</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q27_expenses_increased" value="Moderately" data-required="true">
+              <span class="option-label">📊 Moderately</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q27_expenses_increased" value="Slightly" data-required="true">
+              <span class="option-label">📉 Slightly</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q27_expenses_increased" value="No" data-required="true">
+              <span class="option-label">🛡️ No Change</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q28 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q28</span>
+            <span>Have you taken a loan for agricultural purposes?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q28_loan" value="Yes" data-required="true" checked>
+              <span class="option-label">📝 Yes</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q28_loan" value="No" data-required="true">
+              <span class="option-label">❌ No</span>
+            </label>
+          </div>
+
+          <!-- Conditional Q28 Details -->
+          <div id="conditional-loan-box" class="conditional-box visible">
+            <h4 style="font-size: 0.95rem; color: var(--primary-900); margin-bottom: 0.75rem;">📋 Loan Details (since you answered Yes):</h4>
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label">Approximate Loan Amount (₹)</label>
+                <input type="text" name="q28_loan_amount" class="form-control" placeholder="e.g. 75,000" value="75000">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Main Reason for Loan</label>
+                <input type="text" name="q28_loan_reason" class="form-control" placeholder="e.g. Seeds, Drip system, Fertilizer" value="Seeds & Fertilizer">
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 0;">
+              <label class="form-label">Primary Loan Source</label>
+              <div class="options-grid">
+                <label class="option-card">
+                  <input type="radio" name="q28_loan_source" value="Bank" checked>
+                  <span class="option-label">🏦 Commercial Bank</span>
+                </label>
+                <label class="option-card">
+                  <input type="radio" name="q28_loan_source" value="Cooperative society">
+                  <span class="option-label">🤝 Cooperative Society</span>
+                </label>
+                <label class="option-card">
+                  <input type="radio" name="q28_loan_source" value="Government scheme">
+                  <span class="option-label">🏛️ Govt Scheme</span>
+                </label>
+                <label class="option-card">
+                  <input type="radio" name="q28_loan_source" value="Self-help group">
+                  <span class="option-label">👥 Self-Help Group</span>
+                </label>
+                <label class="option-card">
+                  <input type="radio" name="q28_loan_source" value="Private lender">
+                  <span class="option-label">💼 Private Lender</span>
+                </label>
+                <label class="option-card">
+                  <input type="radio" name="q28_loan_source" value="Other">
+                  <span class="option-label">✨ Other</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q29 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q29</span>
+            <span>Is getting an agricultural loan easy?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q29_loan_easy" value="Very Easy" data-required="true">
+              <span class="option-label">🟢 Very Easy</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q29_loan_easy" value="Easy" data-required="true">
+              <span class="option-label">🔵 Easy</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q29_loan_easy" value="Difficult" data-required="true" checked>
+              <span class="option-label">🟠 Difficult</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q29_loan_easy" value="Very Difficult" data-required="true">
+              <span class="option-label">🔴 Very Difficult</span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           STEP 7: Harvesting, Crop Loss & Selling Profit (Q30 to Q39)
+           =================================================================== -->
+      <section id="survey-step-7" class="survey-section-card" style="display: none;">
+        <div class="step-banner">
+          <div class="step-banner-icon">⚖️</div>
+          <div class="step-banner-info">
+            <h2>Step 7: Harvesting, Crop Loss & Selling Profit</h2>
+            <p>Yield estimation, post-harvest losses, storage methods, and market remuneration.</p>
+          </div>
+        </div>
+
+        <!-- Q30 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q30</span>
+            <span>What is your approximate crop yield?</span>
+          </div>
+          <div class="form-grid-2">
+            <input type="number" name="q30_yield_qty" class="form-control" placeholder="e.g. 25" value="25">
+            <select name="q30_yield_unit" class="form-control">
+              <option value="Quintals/Acre">Quintals / Acre</option>
+              <option value="Tons/Acre">Tons / Acre</option>
+              <option value="Kg/Acre">Kilograms / Acre</option>
+              <option value="Bags/Acre">Bags / Acre</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Q31 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q31</span>
+            <span>How much crop loss do you normally experience during harvesting?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q31_harvest_loss_pct" value="Less than 5%" data-required="true">
+              <span class="option-label">&lt; 5%</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q31_harvest_loss_pct" value="5–10%" data-required="true" checked>
+              <span class="option-label">5% – 10%</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q31_harvest_loss_pct" value="10–20%" data-required="true">
+              <span class="option-label">10% – 20%</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q31_harvest_loss_pct" value="20–30%" data-required="true">
+              <span class="option-label">20% – 30%</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q31_harvest_loss_pct" value="More than 30%" data-required="true">
+              <span class="option-label">&gt; 30%</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q32 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q32</span>
+            <span>What is the main reason for harvesting loss?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q32_harvest_loss_reason" value="Weather" data-required="true" checked>
+              <span class="option-label">🌧️ Weather</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q32_harvest_loss_reason" value="Labour shortage" data-required="true">
+              <span class="option-label">👥 Labour shortage</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q32_harvest_loss_reason" value="Machinery problems" data-required="true">
+              <span class="option-label">🚜 Machinery breakdown</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q32_harvest_loss_reason" value="Storage problems" data-required="true">
+              <span class="option-label">🏚️ Storage issues</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q32_harvest_loss_reason" value="Transportation" data-required="true">
+              <span class="option-label">🚚 Transportation</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q32_harvest_loss_reason" value="Pest/disease" data-required="true">
+              <span class="option-label">🐛 Pest/disease</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q32_harvest_loss_reason" value="Other" data-required="true">
+              <span class="option-label">✨ Other</span>
+            </label>
+          </div>
+          <div id="q32_loss_reason_other_box" class="conditional-box">
+            <label class="form-label">Specify loss reason:</label>
+            <input type="text" name="q32_harvest_loss_reason_other" class="form-control" placeholder="Loss reason details...">
+          </div>
+        </div>
+
+        <!-- Q33 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q33</span>
+            <span>Do you use machinery for harvesting?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q33_machinery_used" value="Yes" data-required="true">
+              <span class="option-label">🚜 Yes (Harvester/Tractor)</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q33_machinery_used" value="No" data-required="true">
+              <span class="option-label">🛠️ No (Manual Sickle)</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q33_machinery_used" value="Partially" data-required="true" checked>
+              <span class="option-label">⚖️ Partially</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q34 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q34</span>
+            <span>How do you store harvested crops?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q34_storage_method" value="Warehouse" data-required="true">
+              <span class="option-label">🏢 Commercial Warehouse</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q34_storage_method" value="Government storage" data-required="true" checked>
+              <span class="option-label">🏛️ Government Storage</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q34_storage_method" value="Private storage" data-required="true">
+              <span class="option-label">🔒 Private Storage</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q34_storage_method" value="Home storage" data-required="true">
+              <span class="option-label">🏡 Home / Farm Storage</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q34_storage_method" value="Sell immediately" data-required="true">
+              <span class="option-label">⚡ Sell immediately</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q34_storage_method" value="Other" data-required="true">
+              <span class="option-label">✨ Other</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q35 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q35</span>
+            <span>Where do you mainly sell your crop?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q35_sell_location" value="Local market" data-required="true">
+              <span class="option-label">🛒 Local Haat / Market</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q35_sell_location" value="Agricultural market" data-required="true" checked>
+              <span class="option-label">🌾 APMC Mandi</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q35_sell_location" value="Directly to consumers" data-required="true">
+              <span class="option-label">🤝 Direct to Consumers</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q35_sell_location" value="Trader" data-required="true">
+              <span class="option-label">💼 Village Trader / Broker</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q35_sell_location" value="Cooperative" data-required="true">
+              <span class="option-label">🏢 Cooperative Society</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q35_sell_location" value="Online platform" data-required="true">
+              <span class="option-label">🌐 Online (eNAM)</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q35_sell_location" value="Other" data-required="true">
+              <span class="option-label">✨ Other</span>
+            </label>
+          </div>
+          <div id="q35_sell_location_other_box" class="conditional-box">
+            <label class="form-label">Specify selling location:</label>
+            <input type="text" name="q35_sell_location_other" class="form-control" placeholder="Mandi details...">
+          </div>
+        </div>
+
+        <!-- Q36 & Q37 -->
+        <div class="question-item">
+          <div class="form-grid-2">
+            <div>
+              <div class="question-title">
+                <span class="q-badge">Q36</span>
+                <span>Crop sold last season:</span>
+              </div>
+              <input type="text" name="q36_sold_qty" class="form-control" placeholder="e.g. 100 Quintals" value="100 Quintals">
+            </div>
+            <div>
+              <div class="question-title">
+                <span class="q-badge">Q37</span>
+                <span>Approximate selling price:</span>
+              </div>
+              <input type="text" name="q37_sell_price" class="form-control" placeholder="e.g. ₹2,400 / Quintal" value="₹2,400 / Quintal">
+            </div>
+          </div>
+        </div>
+
+        <!-- Q38 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q38</span>
+            <span>Did you make a profit from your crop?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q38_profit_status" value="High profit" data-required="true">
+              <span class="option-label">🟢 High profit</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q38_profit_status" value="Moderate profit" data-required="true" checked>
+              <span class="option-label">🔵 Moderate profit</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q38_profit_status" value="Small profit" data-required="true">
+              <span class="option-label">🟡 Small profit</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q38_profit_status" value="Break-even" data-required="true">
+              <span class="option-label">⚪ Break-even (No profit/loss)</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q38_profit_status" value="Loss" data-required="true">
+              <span class="option-label">🔴 Incurred Loss</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q39 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q39</span>
+            <span>What is the biggest difficulty when selling your crop?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q39_sell_difficulty" value="Low market price" data-required="true">
+              <span class="option-label">📉 Low market price</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q39_sell_difficulty" value="Transportation" data-required="true">
+              <span class="option-label">🚚 High transportation</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q39_sell_difficulty" value="Middlemen" data-required="true" checked>
+              <span class="option-label">🤝 Commission Agents / Middlemen</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q39_sell_difficulty" value="Lack of buyers" data-required="true">
+              <span class="option-label">👤 Lack of buyers</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q39_sell_difficulty" value="Storage" data-required="true">
+              <span class="option-label">🏚️ Lack of storage</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q39_sell_difficulty" value="Market information" data-required="true">
+              <span class="option-label">ℹ️ Poor price info</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q39_sell_difficulty" value="Other" data-required="true">
+              <span class="option-label">✨ Other</span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           STEP 8: Technology, Government Support & Satisfaction (Q40 to Q54)
+           =================================================================== -->
+      <section id="survey-step-8" class="survey-section-card" style="display: none;">
+        <div class="step-banner">
+          <div class="step-banner-icon">🌟</div>
+          <div class="step-banner-info">
+            <h2>Step 8: Technology, Policy Support & Voice</h2>
+            <p>Pest control, modern agritech tools, state welfare schemes, and farmer satisfaction.</p>
+          </div>
+        </div>
+
+        <!-- Q40 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q40</span>
+            <span>Did your crop experience pest or disease problems?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q40_pest_problem" value="Frequently" data-required="true">
+              <span class="option-label">🔴 Frequently</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q40_pest_problem" value="Sometimes" data-required="true" checked>
+              <span class="option-label">🟡 Sometimes</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q40_pest_problem" value="Rarely" data-required="true">
+              <span class="option-label">🔵 Rarely</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q40_pest_problem" value="Never" data-required="true">
+              <span class="option-label">🟢 Never</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q41 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q41</span>
+            <span>What method do you mainly use to control pests?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q41_pest_control" value="Chemical pesticides" data-required="true">
+              <span class="option-label">🧪 Chemical pesticides</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q41_pest_control" value="Organic methods" data-required="true">
+              <span class="option-label">🍃 Neem / Organic remedies</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q41_pest_control" value="Biological control" data-required="true">
+              <span class="option-label">🐞 Biological control</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q41_pest_control" value="Integrated methods" data-required="true" checked>
+              <span class="option-label">🔬 Integrated pest mgmt</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q41_pest_control" value="Other" data-required="true">
+              <span class="option-label">✨ Other</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q42 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q42</span>
+            <span>How much crop loss is caused by pests/diseases?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q42_pest_loss_pct" value="Less than 5%" data-required="true">
+              <span class="option-label">&lt; 5%</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q42_pest_loss_pct" value="5% – 10%" data-required="true" checked>
+              <span class="option-label">5% – 10%</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q42_pest_loss_pct" value="10% – 20%" data-required="true">
+              <span class="option-label">10% – 20%</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q42_pest_loss_pct" value="More than 20%" data-required="true">
+              <span class="option-label">&gt; 20%</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q43 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q43</span>
+            <span>Do you use modern technology in farming?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q43_use_tech" value="Yes" data-required="true">
+              <span class="option-label">🚀 Yes</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q43_use_tech" value="No" data-required="true">
+              <span class="option-label">❌ No</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q43_use_tech" value="Partially" data-required="true" checked>
+              <span class="option-label">⚙️ Partially</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q44 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q44</span>
+            <span>Which technologies do you use? (Select all that apply)</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="checkbox" name="q44_tech_used" value="Drip irrigation" checked>
+              <span class="option-label">💧 Drip irrigation</span>
+            </label>
+            <label class="option-card">
+              <input type="checkbox" name="q44_tech_used" value="Soil sensors">
+              <span class="option-label">📡 Soil sensors</span>
+            </label>
+            <label class="option-card">
+              <input type="checkbox" name="q44_tech_used" value="Weather applications" checked>
+              <span class="option-label">📲 Weather apps</span>
+            </label>
+            <label class="option-card">
+              <input type="checkbox" name="q44_tech_used" value="Tractors" checked>
+              <span class="option-label">🚜 Tractors</span>
+            </label>
+            <label class="option-card">
+              <input type="checkbox" name="q44_tech_used" value="Harvesting machines">
+              <span class="option-label">🌾 Harvesters</span>
+            </label>
+            <label class="option-card">
+              <input type="checkbox" name="q44_tech_used" value="Drones">
+              <span class="option-label">🛸 Sprayer Drones</span>
+            </label>
+            <label class="option-card">
+              <input type="checkbox" name="q44_tech_used" value="Mobile agriculture apps">
+              <span class="option-label">📱 Agri portals</span>
+            </label>
+            <label class="option-card">
+              <input type="checkbox" name="q44_tech_used" value="GPS">
+              <span class="option-label">🛰️ GPS guidance</span>
+            </label>
+            <label class="option-card">
+              <input type="checkbox" name="q44_tech_used" value="Automated irrigation">
+              <span class="option-label">⏲️ Smart valves</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q45 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q45</span>
+            <span>Would you like to adopt more agricultural technology?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q45_adopt_more_tech" value="Definitely" data-required="true" checked>
+              <span class="option-label">🚀 Definitely</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q45_adopt_more_tech" value="Maybe" data-required="true">
+              <span class="option-label">🤔 Maybe</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q45_adopt_more_tech" value="No" data-required="true">
+              <span class="option-label">🛡️ No</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q46 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q46</span>
+            <span>Are you aware of government agricultural schemes?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q46_gov_schemes_aware" value="Yes" data-required="true" checked>
+              <span class="option-label">✅ Yes (PM-KISAN, Fasal Bima)</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q46_gov_schemes_aware" value="No" data-required="true">
+              <span class="option-label">❌ No</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q46_gov_schemes_aware" value="Somewhat" data-required="true">
+              <span class="option-label">⏳ Somewhat</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q47 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q47</span>
+            <span>Have you received government agricultural support?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q47_gov_support_received" value="Yes" data-required="true" checked>
+              <span class="option-label">🏛️ Yes</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q47_gov_support_received" value="No" data-required="true">
+              <span class="option-label">❌ No</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q48 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q48</span>
+            <span>What type of support would help you most?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q48_helpful_support" value="Subsidy" data-required="true" checked>
+              <span class="option-label">💵 Direct Subsidy</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q48_helpful_support" value="Loan" data-required="true">
+              <span class="option-label">🏦 Low-interest Loan</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q48_helpful_support" value="Irrigation" data-required="true">
+              <span class="option-label">💧 Solar / Water Infra</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q48_helpful_support" value="Seeds" data-required="true">
+              <span class="option-label">🌱 Certified Seeds</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q48_helpful_support" value="Fertilizer" data-required="true">
+              <span class="option-label">🧪 Fertilizer Concession</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q48_helpful_support" value="Machinery" data-required="true">
+              <span class="option-label">🚜 Machinery Subsidy</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q48_helpful_support" value="Crop insurance" data-required="true">
+              <span class="option-label">🛡️ Quick Claim Insurance</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q48_helpful_support" value="Market support" data-required="true">
+              <span class="option-label">📈 MSP / Market Support</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q48_helpful_support" value="Training" data-required="true">
+              <span class="option-label">🎓 Technical Training</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q49 Rating -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q49</span>
+            <span>Overall, how satisfied are you with your farming experience?</span>
+          </div>
+          <input type="hidden" id="q49_satisfaction_input" name="q49_satisfaction" value="4">
+          <div class="rating-group">
+            <button type="button" class="rating-btn" data-val="1">
+              <span class="rating-star">★</span>
+              <span class="rating-num">1 - Poor</span>
+            </button>
+            <button type="button" class="rating-btn" data-val="2">
+              <span class="rating-star">★</span>
+              <span class="rating-num">2 - Fair</span>
+            </button>
+            <button type="button" class="rating-btn" data-val="3">
+              <span class="rating-star">★</span>
+              <span class="rating-num">3 - Neutral</span>
+            </button>
+            <button type="button" class="rating-btn selected" data-val="4">
+              <span class="rating-star">★</span>
+              <span class="rating-num">4 - Good</span>
+            </button>
+            <button type="button" class="rating-btn" data-val="5">
+              <span class="rating-star">★</span>
+              <span class="rating-num">5 - Great</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Q50 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q50</span>
+            <span>Are you happy with the current condition of your crop?</span>
+          </div>
+          <div class="options-grid">
+            <label class="option-card">
+              <input type="radio" name="q50_crop_condition" value="Very Happy" data-required="true">
+              <span class="option-label">😄 Very Happy</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q50_crop_condition" value="Happy" data-required="true" checked>
+              <span class="option-label">🙂 Happy</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q50_crop_condition" value="Neutral" data-required="true">
+              <span class="option-label">😐 Neutral</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q50_crop_condition" value="Unhappy" data-required="true">
+              <span class="option-label">🙁 Unhappy</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q50_crop_condition" value="Very Unhappy" data-required="true">
+              <span class="option-label">😢 Very Unhappy</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q51 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q51</span>
+            <span>What is the biggest challenge you currently face in agriculture?</span>
+          </div>
+          <input type="text" name="q51_biggest_challenge" class="form-control" placeholder="e.g. Unpredictable rainfall and high pesticide costs" value="Unpredictable weather and low market price realization">
+        </div>
+
+        <!-- Q52 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q52</span>
+            <span>What improvement would help farmers the most?</span>
+          </div>
+          <input type="text" name="q52_most_needed_improvement" class="form-control" placeholder="e.g. Subsidized solar pumping and direct mandis" value="Direct farmer-to-consumer digital markets without commission agents">
+        </div>
+
+        <!-- Q53 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q53</span>
+            <span>What are your expectations for the next crop season?</span>
+          </div>
+          <input type="text" name="q53_next_season_expectations" class="form-control" placeholder="e.g. Expecting good monsoon and healthy pulse yield" value="Planning to adopt drip irrigation across all acreage and diversify into pulses">
+        </div>
+
+        <!-- Q54 -->
+        <div class="question-item">
+          <div class="question-title">
+            <span class="q-badge">Q54</span>
+            <span>Additional comments or suggestions:</span>
+          </div>
+          <textarea name="q54_additional_comments" class="form-control" rows="3" placeholder="Write any specific feedback or message for agricultural policy makers...">AgriSurvey is a wonderful platform. Timely mobile weather alerts and guaranteed MSP procurement centers in villages will transform Indian agriculture.</textarea>
+        </div>
+      </section>
+
+      <!-- Wizard Navigation Footer -->
+      <div class="wizard-footer">
+        <div class="wizard-footer-left">
+          <button type="button" id="btn-prev-step" class="btn btn-secondary" style="display: none;">
+            ← Previous Step
+          </button>
+          <button type="button" id="btn-save-draft" class="btn btn-secondary">
+            💾 Save Progress
+          </button>
+        </div>
+
+        <div class="wizard-footer-right">
+          <button type="button" id="btn-next-step" class="btn btn-primary">
+            Next Step →
+          </button>
+          <button type="button" id="btn-submit-survey" class="btn btn-gold btn-lg" style="display: none;">
+            ✓ Submit Survey
+          </button>
+        </div>
+      </div>
+
+    </form>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="footer">
+    <div class="footer-bottom">
+      <div>🌾 AgriSurvey &bull; Smart Agriculture Public Survey System</div>
+      <div>Session Data saved in Browser LocalStorage</div>
+    </div>
+  </footer>
+
+  <script src="js/validation.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/survey.js"></script>
+</body>
+</html>

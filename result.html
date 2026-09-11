@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Survey Submission Summary – AgriSurvey</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌾</text></svg>">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo">
+        <span class="brand-icon">🌾</span>
+        <span>AgriSurvey</span>
+        <span class="brand-badge">Submission Record</span>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="survey.html" class="nav-link">Survey</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <div id="nav-auth-container"></div>
+        <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="result-container">
+    <!-- Success Banner -->
+    <div class="success-banner">
+      <div class="success-icon-badge">✓</div>
+      <h1>Survey Submitted Successfully!</h1>
+      <p>
+        Thank you for participating in the AgriSurvey! Your response has been securely recorded to contribute towards data-driven agricultural development.
+      </p>
+      <div style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.9;">
+        Submission ID: <strong id="submission-id">AGRI-DEMO-001</strong> &bull; Date: <span id="submission-date">Today</span>
+      </div>
+    </div>
+
+    <!-- Quick Metric Cards -->
+    <div class="metrics-cards-grid">
+      <div class="metric-card">
+        <div class="metric-label">Respondent</div>
+        <div id="res-farmer-name" class="metric-value">Ramesh Patel</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Main Crop</div>
+        <div id="res-main-crop" class="metric-value">Wheat</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Crop Season</div>
+        <div id="res-season" class="metric-value">Rabi</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Land Size</div>
+        <div id="res-land-size" class="metric-value">5–10 acres</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Irrigation</div>
+        <div id="res-irrigation" class="metric-value">Drip System</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Satisfaction</div>
+        <div id="res-satisfaction" class="metric-value">★★★★☆ (4/5)</div>
+      </div>
+    </div>
+
+    <!-- Detailed Submission Summary Table -->
+    <div class="summary-details-card">
+      <div class="summary-details-header">
+        <div>
+          <h2 style="font-size: 1.45rem;">🌾 Comprehensive Survey Summary</h2>
+          <p style="color: var(--text-muted); font-size: 0.88rem;">Official response snapshot for academic and regional evaluation</p>
+        </div>
+        <button class="btn btn-sm btn-secondary" onclick="window.print()">
+          🖨️ Print / Save PDF
+        </button>
+      </div>
+
+      <table class="summary-table">
+        <tbody>
+          <tr>
+            <th>Farmer Profile</th>
+            <td id="table-farmer-profile">Ramesh Patel (Age: 42, Male)</td>
+          </tr>
+          <tr>
+            <th>Contact & Location</th>
+            <td id="table-location">Kalyanpur, Nashik, Maharashtra (Pincode: 422003)</td>
+          </tr>
+          <tr>
+            <th>Farming Experience</th>
+            <td id="table-experience">11–20 years (Farm Owner)</td>
+          </tr>
+          <tr>
+            <th>Main Crop Cultivated</th>
+            <td id="table-crop">Wheat (Rabi season, 2 crops/year)</td>
+          </tr>
+          <tr>
+            <th>Crop Selection Reason</th>
+            <td id="table-reason">Market demand & Climate suitability</td>
+          </tr>
+          <tr>
+            <th>Irrigation & Water Sufficiency</th>
+            <td id="table-water">Borewell & Drip irrigation (Water status: Usually sufficient)</td>
+          </tr>
+          <tr>
+            <th>Agricultural Electricity Hours</th>
+            <td id="table-power">8 Hours / Day (Power interruption: Sometimes)</td>
+          </tr>
+          <tr>
+            <th>Fertilizer & Soil Testing</th>
+            <td id="table-soil">Both Organic & Chemical (Soil testing: Sometimes conducted)</td>
+          </tr>
+          <tr>
+            <th>Weather & Climate Challenge</th>
+            <td id="table-climate">High climate impact (Unpredictable weather causes major loss)</td>
+          </tr>
+          <tr>
+            <th>Estimated Season Investment</th>
+            <td id="table-investment">₹50,000 – ₹1,00,000 (Biggest expense: Fertilizer)</td>
+          </tr>
+          <tr>
+            <th>Agricultural Loan Details</th>
+            <td id="table-loan">Yes, ₹75,000 borrowed from Commercial Bank</td>
+          </tr>
+          <tr>
+            <th>Estimated Yield & Harvest Loss</th>
+            <td id="table-harvest">25 Quintals/Acre (Loss: 5–10% due to weather)</td>
+          </tr>
+          <tr>
+            <th>Crop Selling & Profitability</th>
+            <td id="table-selling">Sold in APMC Mandi @ ₹2,400/Quintal (Moderate Profit)</td>
+          </tr>
+          <tr>
+            <th>Modern Tech & Govt Schemes</th>
+            <td id="table-tech">Drip irrigation, Tractors, Weather apps (Aware of Govt Schemes: Yes)</td>
+          </tr>
+          <tr>
+            <th>Overall Farming Satisfaction</th>
+            <td id="table-rating">★★★★☆ (Rating: 4/5) &bull; Crop condition: Happy</td>
+          </tr>
+          <tr>
+            <th>Key Challenge & Farmer Voice</th>
+            <td id="table-feedback">"Unpredictable weather and low market price realization. Direct digital mandis needed."</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="background: var(--primary-50); border: 1px solid var(--primary-200); border-radius: var(--radius-md); padding: 1.1rem; text-align: center; color: var(--primary-800); font-weight: 600; margin-top: 1.2rem;">
+        ✓ Survey Status: 100% Completed and Verified
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="result-actions">
+      <button id="btn-start-new" class="btn btn-gold btn-lg">
+        🔄 Start New Survey
+      </button>
+      <a href="index.html" class="btn btn-primary btn-lg">
+        🏠 Go to Home
+      </a>
+      <button class="btn btn-secondary btn-lg" onclick="window.print()">
+        📄 Download PDF Report
+      </button>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-bottom">
+      <div>🌾 AgriSurvey &bull; Smart Agriculture Public Survey Portal</div>
+      <div>Official Project Demonstration Submission</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loadSubmissionSummary();
+      setupNewSurveyButton();
+    });
+
+    function loadSubmissionSummary() {
+      const raw = localStorage.getItem('agrisurvey_latest_submission');
+      if (!raw) return;
+
+      try {
+        const sub = JSON.parse(raw);
+        const d = sub.data || {};
+
+        document.getElementById('submission-id').textContent = sub.id || 'AGRI-2026-SUB';
+        document.getElementById('submission-date').textContent = new Date(sub.submittedAt).toLocaleDateString(undefined, {
+          year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit'
+        });
+
+        // Quick Metrics
+        const farmerName = d['farmer_name'] || sub.user?.name || 'Farmer';
+        const crop = d['q4_crop'] === 'Other' ? (d['q4_crop_other'] || 'Other') : (d['q4_crop'] || 'Wheat');
+        const season = d['q5_season'] || 'Rabi';
+        const land = d['q3_land_size'] || '5–10 acres';
+        const irrigation = d['q11_irrigation_method'] || d['q9_water_source'] || 'Drip irrigation';
+        const rating = d['q49_satisfaction'] || '4';
+
+        document.getElementById('res-farmer-name').textContent = farmerName;
+        document.getElementById('res-main-crop').textContent = crop;
+        document.getElementById('res-season').textContent = season;
+        document.getElementById('res-land-size').textContent = land;
+        document.getElementById('res-irrigation').textContent = irrigation;
+        
+        let stars = '★'.repeat(parseInt(rating)) + '☆'.repeat(5 - parseInt(rating));
+        document.getElementById('res-satisfaction').textContent = `${stars} (${rating}/5)`;
+
+        // Table Rows
+        document.getElementById('table-farmer-profile').textContent = `${farmerName} (Age: ${d['farmer_age'] || '42'}, ${d['farmer_gender'] || 'Male'}) - Mobile: ${d['farmer_mobile'] || 'N/A'}`;
+        document.getElementById('table-location').textContent = `${d['farmer_village'] || 'Kalyanpur'}, ${d['farmer_district'] || 'Nashik'}, ${d['farmer_state'] || 'Maharashtra'} (Pin: ${d['farmer_pincode'] || '422003'})`;
+        document.getElementById('table-experience').textContent = `${d['q2_experience'] || d['farmer_experience'] || '11–20 years'} (${d['q1_occupation'] || 'Farm Owner'})`;
+        document.getElementById('table-crop').textContent = `${crop} (${season} season, ${d['q6_crops_count'] || '2'} crops/year, Rotation: ${d['q7_crop_rotation'] || 'Yes'})`;
+        document.getElementById('table-reason').textContent = d['q8_reason'] || 'Market demand';
+        document.getElementById('table-water').textContent = `Source: ${d['q9_water_source'] || 'Borewell'}, Method: ${irrigation} (Sufficiency: ${d['q10_water_sufficient'] || 'Usually'})`;
+        document.getElementById('table-power').textContent = `${d['q22_power_hours'] || '8'} Hours/day (Interruption impact: ${d['q23_power_interruption'] || 'Sometimes'})`;
+        document.getElementById('table-soil').textContent = `Fertilizer: ${d['q13_fertilizer_type'] || 'Both'}, Frequency: ${d['q14_fertilizer_frequency'] || '2-3 times'} (Soil test: ${d['q15_soil_test'] || 'Sometimes'})`;
+        document.getElementById('table-climate').textContent = `Climate impact: ${d['q17_climate_impact'] || 'High'}, Worst condition: ${d['q18_weather_problem'] || 'Unpredictable weather'}, Loss: ${d['q19_extreme_weather_loss'] || 'Yes'}`;
+        document.getElementById('table-investment').textContent = `${d['q24_season_investment'] || '₹50,000 – ₹1,00,000'} (Major expense: ${d['q25_biggest_expense'] || 'Fertilizer'}, Labour: ${d['q26_labour_cost_pct'] || '20%–40%'})`;
+        
+        const loanStr = d['q28_loan'] === 'Yes' ? `Yes, ₹${d['q28_loan_amount'] || '75,000'} (${d['q28_loan_source'] || 'Bank'} for ${d['q28_loan_reason'] || 'Inputs'})` : 'No agricultural loan taken';
+        document.getElementById('table-loan').textContent = loanStr;
+
+        const yieldVal = `${d['q30_yield_qty'] || '25'} ${d['q30_yield_unit'] || 'Quintals/Acre'}`;
+        document.getElementById('table-harvest').textContent = `${yieldVal} (Loss: ${d['q31_harvest_loss_pct'] || '5–10%'} due to ${d['q32_harvest_loss_reason'] || 'Weather'}, Machinery: ${d['q33_machinery_used'] || 'Partially'})`;
+        document.getElementById('table-selling').textContent = `Sold at: ${d['q35_sell_location'] || 'APMC Mandi'} (${d['q36_sold_qty'] || '100 Qtl'} @ ${d['q37_sell_price'] || '₹2,400'}) &bull; Status: ${d['q38_profit_status'] || 'Moderate profit'}`;
+        
+        const techList = Array.isArray(d['q44_tech_used']) ? d['q44_tech_used'].join(', ') : (d['q44_tech_used'] || 'Drip irrigation, Tractors');
+        document.getElementById('table-tech').textContent = `${techList} (Govt schemes aware: ${d['q46_gov_schemes_aware'] || 'Yes'})`;
+
+        document.getElementById('table-rating').textContent = `${stars} (Rating: ${rating}/5) &bull; Crop condition: ${d['q50_crop_condition'] || 'Happy'}`;
+        document.getElementById('table-feedback').textContent = `"${d['q51_biggest_challenge'] || d['q54_additional_comments'] || 'Sustainable agriculture practices needed.'}"`;
+
+      } catch (e) {
+        console.error('Error loading result summary:', e);
+      }
+    }
+
+    function setupNewSurveyButton() {
+      const btn = document.getElementById('btn-start-new');
+      if (!btn) return;
+      btn.addEventListener('click', () => {
+        if (confirm('Start a new survey? Your current draft will be reset.')) {
+          localStorage.removeItem('agrisurvey_draft');
+          window.location.href = 'survey.html';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
