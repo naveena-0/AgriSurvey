@@ -35,7 +35,7 @@ npm install
 ```bash
 npm start
 ```
-Open **[http://localhost:5173](http://localhost:5173)** in Google Chrome.
+Open **[http://localhost:5173](agrisurvey.netlify.app)** in Google Chrome.
 
 ---
 
